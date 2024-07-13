@@ -10,8 +10,8 @@ int main(int argc, char*argv[])
 	{
 		DEFAULT,             // Basic state
 		DEFAULT_SLASH,       // State after '/' in basic state
-		SLASHSLASH,          // Such comment as "//this is the C++-style comment"
-		SLASHSTAR,           // Such comment as "//this is the C-style comment"
+		SLASHSLASH,          // Such comment as "//this is a C++-style comment"
+		SLASHSTAR,           // Such comment as "/*this is a C-style comment"
 		SLASHSTAR_STAR,      // State after '*' in SLASH_STAR state   
 		SINGLEQUOTES,        // State after "'" in DEFAULT state
 		SINGLEQUOTES_SLASH,  // State after "/" in SINGLEQUOTES state
@@ -37,14 +37,14 @@ int main(int argc, char*argv[])
 	fin.open(argv[1], std::ios_base::in);
 	if(!fin)
 	{
-	    std::cout << " ->ERROR: input file doesn't exist!\n";
+	        std::cout << " ->ERROR: input file doesn't exist!\n";
 		return 1;
 	}
 	
 	fout.open(argv[2]);
 	if(!fout)
 	{
-	    std::cout << " ->ERROR: output file doesn't exist!\n";
+	        std::cout << " ->ERROR: output file doesn't exist!\n";
 		fin.close();
 		return 1;
 	}
